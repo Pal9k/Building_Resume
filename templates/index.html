@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+{% extends "navbar.html" %}
+  {% block body_block %}
+    <div class="jumbotron">
+      <h1>WELCOME TO Resume Building DJANGO PROJECT !!!!</h1>
+      <br>
+      <h3>Click on below link.</h3>
+      <h3>fill the form</h3>
+      <h3>select template</h3>
+      <h3>And your pdf will be sent to your given emailid</h3>
+      <h3 style="color:red;">Note:As per now use only unique names(I`ll update that fault soon)</h3>
+      <a href="{% url 'Resume:form' %}">Start Building Resume</a>
+    </div>
+
+  {% endblock %}

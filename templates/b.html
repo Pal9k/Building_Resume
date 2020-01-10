@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>Title</title>
+        <style type="text/css">
+            body {
+                font-weight: 200;
+                font-size: 14px;
+            }
+            h1{
+              background-color: {{form.template}};
+              color: grey;
+              font-family: cursive;
+              padding-left: 300px;
+              padding-top: 15px;
+            }
+            h5{
+              color: grey;
+              margin: 5px;
+              font-family: monospace;
+              /* background-color: grey; */
+            }
+            .header{
+              color:grey;
+              background-color:{{form.template}};
+              font-family:cursive;
+              padding-left: 30px;
+              padding-top:10px;
+            }
+
+            p{
+              color: grey;
+              font-family: monospace;
+              font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+      <div class="stuff">
+        <h1>Resume</h1>
+        <h5>{{form.name}}</h5>
+        <h5>{{form.email}}</h5>
+        {% if form.address %}
+        <h5>{{form.address}}</h5>
+        {% endif %}
+        {% if form.mobileno %}
+        <h5>+91-{{form.mobileno}}</h5>
+        <br>
+        {% endif %}
+        {% if form.title %}
+        <p class="header" style="margin-right:500px;">
+          {{form.title}}</p>
+        {% endif %}
+        {% if form.profile_summary %}
+        <p>{{form.profile_summary}}</p>
+        {% endif %}
+        {% if form.skills %}
+        <p class="header" style="margin-right:500px;">Skills</p>
+        <ul>
+          <p>{{form.skills}}</p>
+        </ul>
+        {% endif %}
+        <p class="header" style="margin-right:500px;">Education</p>
+        <ul>
+          {% if form.Latest_Degree %}
+          <p>{{form.Latest_Degree}}
+            {% endif %}
+            <span>
+              <br>
+              <p>
+                {% if form.university_name %}
+                {{form.school_name}},{{form.university_name}}
+                {% else %}
+                {{form.school_name}}
+                {% endif %}
+              </p>
+              <p>
+                {% if form.Passout_year %}
+                Passout year = {{ form.Passout_year }}
+                {% endif %}
+              </p>
+              <p>
+                {% if form.percentage %}
+                Percentage = {{ form.percentage }}
+                {% endif %}
+            </span>
+
+          </li>
+
+        </ul>
+        <p class="header" style="margin-right:500px;" >Experience</p>
+        <ul>
+          {% if form.company_name and form.experience %}
+          <p>{{form.company_name}} ({{form.experience}} years)
+            {% endif %}
+          <span>
+            <br>
+            {% if form.summary %}
+            <p>{{ form.summary }}</p>
+            {% endif %}
+          </span>
+        </p>
+        </ul>
+      </div>
+    </body>
+  </html>
